@@ -1,0 +1,22 @@
+<div class="notecard-body">
+    <h3>{{testValue}}</h3>
+    <div>
+        <div>
+            
+        </div>
+        <div class="form-body" [ngClass]=" {hide : mode === 'displaying'} ">
+            <form [formGroup]="noteForm" novalidate (ngSubmit)="save(noteForm.value.note)">
+                <div class="form-group">
+                <label for="">note:</label>
+                <input type="text" class="form-control" formControlName="note">
+                <!--<pre class="margin-20">{{ myForm.controls.name.errors | json }}</pre>-->
+                </div>
+                <div class="well">
+                    <p>{{noteForm.value.note | json}}</p>
+                </div>
+                <button class="btn btn-info" >Edit</button>
+            </form>
+        </div>
+        <button class="btn btn-success" (click)="setMode()">Edit</button>
+    </div>
+</div>
